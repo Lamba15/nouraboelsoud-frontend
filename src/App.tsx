@@ -5,9 +5,9 @@ function App() {
   return (
       <div>
 
-          <img style={{position: "absolute", width: 200, opacity: 0.3, top: 250, right: 350}} src="/svgs/union_27.svg" alt=""/>
+          <img className="floatingStyle1" style={{position: "absolute", width: 200, opacity: 0.3, top: 250, right: 350}} src="/svgs/union_27.svg" alt=""/>
 
-          <img style={{position: "absolute", width: 500, opacity: 0.1, bottom: 0, left: 0}} src="/svgs/union_35.svg" alt=""/>
+          <img style={{position: "absolute", width: 500, maxWidth: "100%", opacity: 0.1, bottom: 0, left: 0}} src="/svgs/union_35.svg" alt=""/>
 
 
           <Header />
