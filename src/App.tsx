@@ -1,5 +1,50 @@
 import React from 'react';
 import Header from "./components/Header";
+import SkillsContainer from "./components/SkillsContainer";
+import {Skill} from "./types/Types";
+
+const skills: Skill[] = [
+    {
+        name: "LINUX",
+        icon: ""
+    },
+    {
+        name: "AWS",
+        icon: ""
+    },
+    {
+        name: "CI/CD",
+        icon: ""
+    },
+    {
+        name: "SQL",
+        icon: ""
+    },
+    {
+        name: "PHP",
+        icon: ""
+    },
+    {
+        name: "NEXTJS",
+        icon: ""
+    },
+    {
+        name: "TYPESCRIPT",
+        icon: ""
+    },
+    {
+        name: "REACT",
+        icon: ""
+    },
+    {
+        name: "REACT NATIVE",
+        icon: ""
+    },
+    {
+        name: "GIT",
+        icon: ""
+    },
+]
 
 function App() {
   return (
@@ -36,6 +81,8 @@ function App() {
                   <img src="/my-picture.png" alt="Nour Abo Elsoud" />
               </div>
           </div>
+
+          <SkillsContainer skills={skills} />
 
 
       </div>
