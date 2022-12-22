@@ -6,43 +6,43 @@ import {Skill} from "./types/Types";
 const skills: Skill[] = [
     {
         name: "LINUX",
-        icon: ""
+        icon: "/tempIcons/linux.png"
     },
     {
         name: "AWS",
-        icon: ""
+        icon: "/tempIcons/aws.svg"
     },
     {
         name: "CI/CD",
-        icon: ""
+        icon: "/tempIcons/cicd.png"
     },
     {
         name: "SQL",
-        icon: ""
+        icon: "/tempIcons/sql.png"
     },
     {
         name: "PHP",
-        icon: ""
+        icon: "/tempIcons/php.png"
     },
     {
         name: "NEXTJS",
-        icon: ""
+        icon: "/tempIcons/nextjs.svg"
     },
     {
         name: "TYPESCRIPT",
-        icon: ""
+        icon: "/tempIcons/typescript.png"
     },
     {
         name: "REACT",
-        icon: ""
+        icon: "/tempIcons/react.svg"
     },
     {
         name: "REACT NATIVE",
-        icon: ""
+        icon: "/tempIcons/react-native.svg"
     },
     {
         name: "GIT",
-        icon: ""
+        icon: "/tempIcons/git.svg"
     },
 ]
 

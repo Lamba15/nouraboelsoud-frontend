@@ -8,9 +8,10 @@ function SkillsContainer(props: Props) {
 
 	return (
 		<div className="skillsContainer">
-			{props.skills.map((skill) => {
+			{props.skills.map((skill, index) => {
 				return (
-				<div className="skill">
+				<div className="skill" key={index}>
+					<img src={skill.icon} alt={skill.name}/>
 					<span>
 						{skill.name}
 					</span>
