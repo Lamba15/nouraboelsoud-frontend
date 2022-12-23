@@ -65,7 +65,7 @@ function App() {
 
 					<div className="underHeader">
 						<a className="button" href="resume.pdf" download>
-							Download CV
+							Download Resume
 						</a>
 
 						<p>
