@@ -2,8 +2,91 @@ import React, {useEffect, useState} from 'react';
 import Header from "./components/Header";
 import SkillsContainer from "./components/SkillsContainer";
 import {SERVICE_URL} from "./Constants";
-import {Skill} from "./types/Types";
+import {Project, Skill} from "./types/Types";
 import AboutMe from "./components/AboutMe";
+import Projects from "./components/Projects";
+
+const projects: Array<Project> = [
+	{
+		id: 1,
+		name: "Mathmasr",
+		link: "https://mathmasr.com",
+		skills: [
+			{name: "SQL", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/1420a631bf752cff63d00831.png"},
+			{name: "PHP", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/14e44b05168ebd2fe900afc4.png"},
+			{name: "REACT", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/c877896a4a087881819e4445.svg"},
+		],
+		cover: "/temp-project-images/mathmasr.svg",
+		description: "A full-featured educational system with exams, video on demand, appraisal system and much more",
+		markdown: "",
+		startDate: "12/12/2020",
+		endDate: "12/12/2022",
+	},
+
+	{
+		id: 2,
+		name: "Mathmasr",
+		link: "https://mathmasr.com",
+		skills: [
+			{name: "SQL", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/1420a631bf752cff63d00831.png"},
+			{name: "PHP", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/14e44b05168ebd2fe900afc4.png"},
+			{name: "REACT", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/c877896a4a087881819e4445.svg"},
+		],
+		cover: "/temp-project-images/mathmasr.svg",
+		description: "A full-featured educational system with exams, video on demand, appraisal system and much more",
+		markdown: "",
+		startDate: "12/12/2020",
+		endDate: "12/12/2022",
+	},
+
+	{
+		id: 3,
+		name: "Mathmasr",
+		link: "https://mathmasr.com",
+		skills: [
+			{name: "SQL", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/1420a631bf752cff63d00831.png"},
+			{name: "PHP", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/14e44b05168ebd2fe900afc4.png"},
+			{name: "REACT", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/c877896a4a087881819e4445.svg"},
+		],
+		cover: "/temp-project-images/mathmasr.svg",
+		description: "A full-featured educational system with exams, video on demand, appraisal system and much more",
+		markdown: "",
+		startDate: "12/12/2020",
+		endDate: "12/12/2022",
+	},
+
+	{
+		id: 4,
+		name: "Mathmasr",
+		link: "https://mathmasr.com",
+		skills: [
+			{name: "SQL", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/1420a631bf752cff63d00831.png"},
+			{name: "PHP", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/14e44b05168ebd2fe900afc4.png"},
+			{name: "REACT", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/c877896a4a087881819e4445.svg"},
+		],
+		cover: "/temp-project-images/mathmasr.svg",
+		description: "A full-featured educational system with exams, video on demand, appraisal system and much more",
+		markdown: "",
+		startDate: "12/12/2020",
+		endDate: "12/12/2022",
+	},
+
+	{
+		id: 5,
+		name: "Mathmasr",
+		link: "https://mathmasr.com",
+		skills: [
+			{name: "SQL", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/1420a631bf752cff63d00831.png"},
+			{name: "PHP", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/14e44b05168ebd2fe900afc4.png"},
+			{name: "REACT", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/c877896a4a087881819e4445.svg"},
+		],
+		cover: "/temp-project-images/mathmasr.svg",
+		description: "A full-featured educational system with exams, video on demand, appraisal system and much more",
+		markdown: "",
+		startDate: "12/12/2020",
+		endDate: "12/12/2022",
+	},
+];
 
 function App() {
 
@@ -30,7 +113,7 @@ function App() {
 			});
 		}
 
-		getSkills()
+		getSkills();
 	}, []);
 
 	return (
@@ -49,7 +132,7 @@ function App() {
 				width: 500,
 				maxWidth: "100%",
 				opacity: 0.1,
-				bottom: 500,
+				bottom: 700,
 				left: 0,
 			}} src="/svgs/union_35.svg" alt=""/>
 
@@ -93,9 +176,9 @@ function App() {
 
 			<SkillsContainer skills={skills}/>
 
+			<AboutMe/>
 
-			<AboutMe />
-
+			<Projects projects={projects}/>
 
 		</div>
 	);
