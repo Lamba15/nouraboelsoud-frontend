@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import SkillsContainer from "./components/SkillsContainer";
 import {SERVICE_URL} from "./Constants";
 import {Skill} from "./types/Types";
+import AboutMe from "./components/AboutMe";
 
 function App() {
 
@@ -48,9 +49,19 @@ function App() {
 				width: 500,
 				maxWidth: "100%",
 				opacity: 0.1,
-				bottom: 0,
+				bottom: 500,
 				left: 0,
 			}} src="/svgs/union_35.svg" alt=""/>
+
+			<img style={{
+				position: "absolute",
+				width: 500,
+				maxWidth: "100%",
+				transform: "rotateY(180deg)",
+				opacity: 0.2,
+				bottom: 0,
+				right: 0,
+			}} src="/svgs/union_30.svg" alt=""/>
 
 
 			<Header/>
@@ -81,6 +92,9 @@ function App() {
 			</div>
 
 			<SkillsContainer skills={skills}/>
+
+
+			<AboutMe />
 
 
 		</div>
