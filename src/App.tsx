@@ -80,7 +80,7 @@ function App() {
 						</a>
 
 						<p>
-							from crm/erp to e-commerce to any custom System <br/>
+							from CRM/ERP to E-commerce to any custom System <br/>
 							passion and innovation fill my heart.
 						</p>
 					</div>

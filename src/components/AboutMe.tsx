@@ -9,9 +9,8 @@ function AboutMe() {
 			</h1>
 
 			<p>
-				Software Developer with 7 years of experience at the start of my career I was
-				mainly developing mobile apps, then I expanded my knowledge to web development,
-				and cross platform mobile with cloud backend.
+				Software Developer with seven years of experience; at the start of my career, I mainly developed mobile
+				apps, expanded my knowledge to web development, and cross-platform mobile with a cloud backend.
 			</p>
 		</div>
 	);
