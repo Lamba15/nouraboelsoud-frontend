@@ -267,18 +267,16 @@ section {
       display: flex;
       margin-top: 12px;
       margin-bottom: 12px;
-      gap: 12px;
+      gap: 24px;
 
       .skill {
         width: 45px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
 
         img {
-          width: 80%;
+          height: 42px;
+          filter: brightness(0);
         }
       }
     }

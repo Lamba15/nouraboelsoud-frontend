@@ -33,7 +33,7 @@ function Projects(props: Props) {
 							</h2>
 
 							<p>
-								{project.startDate} - {project.endDate}
+								{project.startDate}
 							</p>
 
 							<p>
@@ -47,7 +47,6 @@ function Projects(props: Props) {
 									return (
 										<div key={index} className="skill">
 											<img src={skill.icon} alt={skill.name}/>
-											{skill.name}
 										</div>
 									);
 								})}

@@ -12,5 +12,4 @@ export interface Project{
 	skills: Array<Skill>;
 	cover: string;
 	startDate: string;
-	endDate: string;
 }

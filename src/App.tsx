@@ -6,89 +6,9 @@ import {Project, Skill} from "./types/Types";
 import AboutMe from "./components/AboutMe";
 import Projects from "./components/Projects";
 
-const projects: Array<Project> = [
-	{
-		id: 1,
-		name: "Mathmasr",
-		link: "https://mathmasr.com",
-		skills: [
-			{name: "SQL", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/1420a631bf752cff63d00831.png"},
-			{name: "PHP", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/14e44b05168ebd2fe900afc4.png"},
-			{name: "REACT", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/c877896a4a087881819e4445.svg"},
-		],
-		cover: "/temp-project-images/mathmasr.svg",
-		description: "A full-featured educational system with exams, video on demand, appraisal system and much more",
-		markdown: "",
-		startDate: "12/12/2020",
-		endDate: "12/12/2022",
-	},
-
-	{
-		id: 2,
-		name: "Mathmasr",
-		link: "https://mathmasr.com",
-		skills: [
-			{name: "SQL", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/1420a631bf752cff63d00831.png"},
-			{name: "PHP", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/14e44b05168ebd2fe900afc4.png"},
-			{name: "REACT", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/c877896a4a087881819e4445.svg"},
-		],
-		cover: "/temp-project-images/mathmasr.svg",
-		description: "A full-featured educational system with exams, video on demand, appraisal system and much more",
-		markdown: "",
-		startDate: "12/12/2020",
-		endDate: "12/12/2022",
-	},
-
-	{
-		id: 3,
-		name: "Mathmasr",
-		link: "https://mathmasr.com",
-		skills: [
-			{name: "SQL", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/1420a631bf752cff63d00831.png"},
-			{name: "PHP", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/14e44b05168ebd2fe900afc4.png"},
-			{name: "REACT", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/c877896a4a087881819e4445.svg"},
-		],
-		cover: "/temp-project-images/mathmasr.svg",
-		description: "A full-featured educational system with exams, video on demand, appraisal system and much more",
-		markdown: "",
-		startDate: "12/12/2020",
-		endDate: "12/12/2022",
-	},
-
-	{
-		id: 4,
-		name: "Mathmasr",
-		link: "https://mathmasr.com",
-		skills: [
-			{name: "SQL", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/1420a631bf752cff63d00831.png"},
-			{name: "PHP", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/14e44b05168ebd2fe900afc4.png"},
-			{name: "REACT", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/c877896a4a087881819e4445.svg"},
-		],
-		cover: "/temp-project-images/mathmasr.svg",
-		description: "A full-featured educational system with exams, video on demand, appraisal system and much more",
-		markdown: "",
-		startDate: "12/12/2020",
-		endDate: "12/12/2022",
-	},
-
-	{
-		id: 5,
-		name: "Mathmasr",
-		link: "https://mathmasr.com",
-		skills: [
-			{name: "SQL", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/1420a631bf752cff63d00831.png"},
-			{name: "PHP", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/14e44b05168ebd2fe900afc4.png"},
-			{name: "REACT", icon: "https://nouraboelsoud.com/erp/apis/v1/skills/c877896a4a087881819e4445.svg"},
-		],
-		cover: "/temp-project-images/mathmasr.svg",
-		description: "A full-featured educational system with exams, video on demand, appraisal system and much more",
-		markdown: "",
-		startDate: "12/12/2020",
-		endDate: "12/12/2022",
-	},
-];
-
 function App() {
+
+	const [projects, setProjects] = useState<Project[]>([]);
 
 	const [skills, setSkills] = useState<Skill[]>([]);
 
@@ -105,6 +25,27 @@ function App() {
 			}).then(function (data) {
 				if (data.code === 1) {
 					setSkills(data.data);
+					getProjects()
+				} else {
+					// todo handle error
+				}
+			}).catch(() => {
+				// todo handle error
+			});
+		}
+
+		function getProjects() {
+
+			fetch(`${SERVICE_URL}get-projects-public`, {
+				method: 'GET',
+				headers: {
+					"Accept": "application/json",
+				},
+			}).then(function (res) {
+				return res.json();
+			}).then(function (data) {
+				if (data.code === 1) {
+					setProjects(data.data);
 				} else {
 					// todo handle error
 				}
