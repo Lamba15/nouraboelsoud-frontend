@@ -8,7 +8,7 @@ export interface Project{
 	name: string;
 	link: string;
 	description: string;
-	markdown: string;
+	markdownDescription: string;
 	skills: Array<Skill>;
 	cover: string;
 	startDate: string;

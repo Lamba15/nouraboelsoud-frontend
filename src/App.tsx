@@ -5,12 +5,18 @@ import {SERVICE_URL} from "./Constants";
 import {Project, Skill} from "./types/Types";
 import AboutMe from "./components/AboutMe";
 import Projects from "./components/Projects";
+import MarkdownModal from "./components/MarkdownModal";
 
 function App() {
 
 	const [projects, setProjects] = useState<Project[]>([]);
 
 	const [skills, setSkills] = useState<Skill[]>([]);
+
+	const [projectDetailsModal, setProjectDetailsModal] = useState(false);
+	const [projectDetailsModalMarkdown, setProjectDetailsModalMarkdown] = useState("");
+
+
 
 	useEffect(() => {
 		function getSkills() {
@@ -56,6 +62,24 @@ function App() {
 
 		getSkills();
 	}, []);
+
+	function handleProjectClick(markdown: string){
+		setProjectDetailsModal(true)
+		setProjectDetailsModalMarkdown(markdown)
+	}
+
+	function handleClose(){
+		setProjectDetailsModalMarkdown("")
+		setProjectDetailsModal(false)
+	}
+
+	useEffect(() => {
+		if (projectDetailsModal){
+			window.document.getElementsByTagName("html")[0].style.overflow = "hidden";
+		} else {
+			window.document.getElementsByTagName("html")[0].style.overflow = "unset";
+		}
+	}, [projectDetailsModal])
 
 	return (
 		<div>
@@ -119,7 +143,9 @@ function App() {
 
 			<AboutMe/>
 
-			<Projects projects={projects}/>
+			<Projects projects={projects} projectClick={(markdown) => handleProjectClick(markdown)} />
+
+			<MarkdownModal show={projectDetailsModal} handleClose={handleClose} markdown={projectDetailsModalMarkdown} />
 
 		</div>
 	);

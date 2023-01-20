@@ -5,6 +5,7 @@ import 'swiper/css';
 
 type Props = {
 	projects: Array<Project>
+	projectClick: (markdown: string) => void
 }
 
 function Projects(props: Props) {
@@ -54,7 +55,10 @@ function Projects(props: Props) {
 
 							<div className={"buttonsContainer"}>
 								<a href={project.link}>Link</a>
-								<button className="button">Details</button>
+								<button className="button" onClick={() => {
+									props.projectClick(project.markdownDescription)
+								}
+								}>Details</button>
 							</div>
 						</SwiperSlide>
 					);
