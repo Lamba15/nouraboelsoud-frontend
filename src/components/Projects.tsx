@@ -54,7 +54,7 @@ function Projects(props: Props) {
 							</div>
 
 							<div className={"buttonsContainer"}>
-								<a href={project.link}>Link</a>
+								<a href={project.link} target="_blank">Link</a>
 								<button className="button" onClick={() => {
 									props.projectClick(project.markdownDescription)
 								}
