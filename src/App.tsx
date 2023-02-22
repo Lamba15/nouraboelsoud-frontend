@@ -5,7 +5,7 @@ import {SERVICE_URL} from "./Constants";
 import {Project, Skill} from "./types/Types";
 import AboutMe from "./components/AboutMe";
 import Projects from "./components/Projects";
-import MarkdownModal from "./components/MarkdownModal";
+import {Outlet, useNavigate, useParams} from "react-router-dom";
 
 function App() {
 
@@ -16,6 +16,11 @@ function App() {
 	const [projectDetailsModal, setProjectDetailsModal] = useState(false);
 	const [projectDetailsModalMarkdown, setProjectDetailsModalMarkdown] = useState("");
 
+	const navigate = useNavigate();
+
+	const {projectId} = useParams();
+
+	console.log(projectId)
 
 
 	useEffect(() => {
@@ -63,9 +68,11 @@ function App() {
 		getSkills();
 	}, []);
 
-	function handleProjectClick(markdown: string){
-		setProjectDetailsModal(true)
-		setProjectDetailsModalMarkdown(markdown)
+	function handleProjectClick(id: number){
+		navigate("/projects/" + id)
+
+		// setProjectDetailsModal(true)
+		// setProjectDetailsModalMarkdown(markdown)
 	}
 
 	function handleClose(){
@@ -143,9 +150,9 @@ function App() {
 
 			<AboutMe/>
 
-			<Projects projects={projects} projectClick={(markdown) => handleProjectClick(markdown)} />
+			<Projects projects={projects} projectClick={(id) => handleProjectClick(id)} />
 
-			<MarkdownModal show={projectDetailsModal} handleClose={handleClose} markdown={projectDetailsModalMarkdown} />
+			<Outlet context={[projects.find((project) => project.id.toString() === projectId ?? "-1")?.markdownDescription]} />
 
 		</div>
 	);

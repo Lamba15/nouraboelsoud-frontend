@@ -1,21 +1,27 @@
 import React from 'react';
 import MDEditor from '@uiw/react-md-editor';
 import rehypeVideo from "rehype-video";
+import {NavLink, useOutletContext} from "react-router-dom";
 
-function MarkdownModal(props: {show: boolean, handleClose: () => void, markdown: string }) {
+function MarkdownModal() {
 
+	// @ts-ignore
+	const [markdownDescription] = useOutletContext();
+
+	console.log(markdownDescription)
 	return (
-		<div className="modal" style={{display: props.show ? "flex" : "none", justifyContent: "flex-end"}} onClick={props.handleClose}>
+		<div className="modal" style={{display: "flex", justifyContent: "flex-end"}}>
 			<section className="modal-main" onClick={(e) => {
 				e.stopPropagation()
 			}
 			}>
 				<MDEditor.Markdown
-					source={props.markdown}
+					// @ts-ignore
+					source={markdownDescription}
 					linkTarget="_blank"
 					rehypePlugins={[[rehypeVideo]]}
 				/>
-				<button onClick={props.handleClose} className={"button"}>Close</button>
+				<NavLink to={"/"} className={"button"}>Close</NavLink>
 			</section>
 		</div>
 	);
