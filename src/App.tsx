@@ -13,9 +13,6 @@ function App() {
 
 	const [skills, setSkills] = useState<Skill[]>([]);
 
-	const [projectDetailsModal, setProjectDetailsModal] = useState(false);
-	const [projectDetailsModalMarkdown, setProjectDetailsModalMarkdown] = useState("");
-
 	const navigate = useNavigate();
 
 	const {projectId} = useParams();
@@ -70,23 +67,7 @@ function App() {
 
 	function handleProjectClick(id: number){
 		navigate("/projects/" + id)
-
-		// setProjectDetailsModal(true)
-		// setProjectDetailsModalMarkdown(markdown)
 	}
-
-	function handleClose(){
-		setProjectDetailsModalMarkdown("")
-		setProjectDetailsModal(false)
-	}
-
-	useEffect(() => {
-		if (projectDetailsModal){
-			window.document.getElementsByTagName("html")[0].style.overflow = "hidden";
-		} else {
-			window.document.getElementsByTagName("html")[0].style.overflow = "unset";
-		}
-	}, [projectDetailsModal])
 
 	return (
 		<div>
