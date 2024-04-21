@@ -9,6 +9,23 @@ $elevation: #ffffff;
   scroll-behavior: smooth;
 }
 
+.skills-project-container {
+  display: flex;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  gap: 12px;
+
+  .skill {
+    width: 45px;
+    display: flex;
+    flex-direction: column;
+
+    img {
+      height: 42px;
+      filter: brightness(0);
+    }
+  }
+}
 
 .container {
   padding-right: 15px;
@@ -281,7 +298,7 @@ section {
     border: transparent 1px solid;
 
     & > img {
-      height: 300px;
+      aspect-ratio: 16/9;
       object-fit: cover;
     }
 
@@ -291,23 +308,7 @@ section {
 
     margin-bottom: 200px;
 
-    .skills-project-container {
-      display: flex;
-      margin-top: 12px;
-      margin-bottom: 12px;
-      gap: 24px;
 
-      .skill {
-        width: 45px;
-        display: flex;
-        flex-direction: column;
-
-        img {
-          height: 42px;
-          filter: brightness(0);
-        }
-      }
-    }
 
     p {
       margin: 0;
@@ -381,25 +382,50 @@ section {
     width: 90%;
     max-width: 900px;
     height: 90vh;
-    padding: 16px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    padding: 3px;
 
-    .wmde-markdown {
-      background-color: unset;
-      color: unset;
-    }
+    & > div {
+      padding: 16px;
+      overflow-y: scroll;
 
-    video {
-      max-width: 100%;
+      .tech-used-container {
+        width: max-content;
+        display: flex;
+      }
+
+      .wmde-markdown {
+        background-color: unset;
+        color: unset;
+      }
+
+      video {
+        max-width: 100%;
+      }
     }
   }
 
 }
 
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $background;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: darken($primary, 10%);
+}

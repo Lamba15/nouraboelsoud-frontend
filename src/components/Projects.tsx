@@ -51,6 +51,16 @@ function Projects(props: Props) {
                                 {project.startDate}
                             </p>
 
+                            <p style={{
+                                display: '-webkit-box',
+                                WebkitLineClamp: 3,
+                                WebkitBoxOrient: 'vertical',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis'
+                            }}>
+                                {project.description}
+                            </p>
+
                             <img src={project.cover} alt={project.name}/>
 
                             <div className="skills-project-container">

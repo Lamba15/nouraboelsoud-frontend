@@ -132,7 +132,7 @@ function App() {
             <Projects projects={projects} projectClick={(id) => handleProjectClick(id)}/>
 
             <Outlet
-                context={[projects.find((project) => project.id.toString() === projectId ?? "-1")?.markdownDescription]}/>
+                context={[projects.find((project) => project.id.toString() === projectId ?? "-1")?.markdownDescription, projects.find((project) => project.id.toString() === projectId ?? "-1")?.skills, projects.find((project) => project.id.toString() === projectId ?? "-1")?.name]}/>
 
         </div>
     );
