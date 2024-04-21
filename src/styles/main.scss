@@ -252,21 +252,42 @@ section {
 
 .projects {
 
+  padding-bottom: 200px;
+
   .projectsContainer {
     overflow-x: hidden;
     display: flex;
     gap: 12px;
   }
 
+  .swiper-pagination-bullet-active {
+    background: $primary !important;
+  }
+
+  .swiper-wrapper {
+    height: 600px;
+  }
+
   .project {
     display: flex;
     flex-direction: column;
     width: 300px;
+    height: min-content;
     max-width: 100%;
     padding: 15px;
-    justify-content: center;
-    border: 1px solid $onBackground;
     gap: 12px;
+    background: $elevation;
+    border-radius: 12px;
+    border: transparent 1px solid;
+
+    & > img {
+      height: 300px;
+      object-fit: cover;
+    }
+
+    &:hover {
+      border: $primary 1px solid;
+    }
 
     margin-bottom: 200px;
 

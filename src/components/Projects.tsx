@@ -2,71 +2,82 @@ import React from 'react';
 import {Project} from "../types/Types";
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.min.css';
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.min.css';
+
+import SwiperCore, {
+    Pagination,
+} from 'swiper';
+
+SwiperCore.use([Pagination]);
 
 type Props = {
-	projects: Array<Project>
-	projectClick: (id: number) => void
+    projects: Array<Project>
+    projectClick: (id: number) => void
 }
 
 function Projects(props: Props) {
 
-	return (
-		<section className={"projects container"}>
-			<h1>
-				Projects
-			</h1>
+    return (
+        <section className={"projects container"}>
+            <h1>
+                Projects
+            </h1>
 
-			<Swiper
-				spaceBetween={50}
-				slidesPerView={"auto"}
-				direction="horizontal"
-				freeMode={true}
-				scrollbar={{hide: false, draggable: true}}
-				mousewheel={true}
-				onSlideChange={() => console.log('slide change')}
-				onSwiper={(swiper) => console.log(swiper)}
-			>
-				{props.projects?.map((project) => {
-					return (
-						<SwiperSlide className={"project"} key={project.id}>
-							<h2>
-								{project.name}
-							</h2>
+            <Swiper
+                spaceBetween={50}
+                slidesPerView={"auto"}
+                direction="horizontal"
+                freeMode={true}
+                // scrollbar={{hide: false, draggable: true}}
+                pagination={{
+                    "dynamicBullets": true,
+                    "clickable": true,
+                }}
+                mousewheel={true}
+                onSlideChange={() => console.log('slide change')}
+                onSwiper={(swiper) => console.log(swiper)}
+            >
+                {props.projects?.map((project) => {
+                    return (
+                        <SwiperSlide className={"project"} key={project.id}>
+                            <h2>
+                                {project.name}
+                            </h2>
 
-							<p>
-								{project.startDate}
-							</p>
+                            <p>
+                                {project.startDate}
+                            </p>
 
-							<p>
-								{project.description}
-							</p>
+                            <img src={project.cover} alt={project.name}/>
 
-							<img src={project.cover} alt={project.name}/>
+                            <div className="skills-project-container">
+                                {project?.skills?.map((skill, index) => {
+                                    return (
+                                        <div key={index} className="skill">
+                                            <img src={skill.icon} alt={skill.name}/>
+                                        </div>
+                                    );
+                                })}
+                            </div>
 
-							<div className="skills-project-container">
-								{project?.skills?.map((skill, index) => {
-									return (
-										<div key={index} className="skill">
-											<img src={skill.icon} alt={skill.name}/>
-										</div>
-									);
-								})}
-							</div>
+                            <div className={"buttonsContainer"}>
+                                <a href={project.link} target="_blank" rel="noopener noreferrer">Link</a>
+                                <button className="button" onClick={() => {
+                                    props.projectClick(project.id)
+                                }
+                                }>Details
+                                </button>
+                            </div>
+                        </SwiperSlide>
+                    );
+                })}
+            </Swiper>
 
-							<div className={"buttonsContainer"}>
-								<a href={project.link} target="_blank" rel="noopener noreferrer">Link</a>
-								<button className="button" onClick={() => {
-									props.projectClick(project.id)
-								}
-								}>Details</button>
-							</div>
-						</SwiperSlide>
-					);
-				})}
-			</Swiper>
-
-		</section>
-	);
+        </section>
+    );
 }
 
 export default Projects;
