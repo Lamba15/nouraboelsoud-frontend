@@ -9,134 +9,133 @@ import {Outlet, useNavigate, useParams} from "react-router-dom";
 
 function App() {
 
-	const [projects, setProjects] = useState<Project[]>([]);
+    const [projects, setProjects] = useState<Project[]>([]);
 
-	const [skills, setSkills] = useState<Skill[]>([]);
+    const [skills, setSkills] = useState<Skill[]>([]);
 
-	const navigate = useNavigate();
+    const navigate = useNavigate();
 
-	const {projectId} = useParams();
+    const {projectId} = useParams();
 
-	console.log(projectId)
+    useEffect(() => {
+        function getSkills() {
 
+            fetch(`${SERVICE_URL}get-skills`, {
+                method: 'GET',
+                headers: {
+                    "Accept": "application/json",
+                },
+            }).then(function (res) {
+                return res.json();
+            }).then(function (data) {
+                if (data.code === 1) {
+                    setSkills(data.data);
+                    getProjects()
+                } else {
+                    // todo handle error
+                }
+            }).catch(() => {
+                // todo handle error
+            });
+        }
 
-	useEffect(() => {
-		function getSkills() {
+        function getProjects() {
 
-			fetch(`${SERVICE_URL}get-skills`, {
-				method: 'GET',
-				headers: {
-					"Accept": "application/json",
-				},
-			}).then(function (res) {
-				return res.json();
-			}).then(function (data) {
-				if (data.code === 1) {
-					setSkills(data.data);
-					getProjects()
-				} else {
-					// todo handle error
-				}
-			}).catch(() => {
-				// todo handle error
-			});
-		}
+            fetch(`${SERVICE_URL}get-projects-public`, {
+                method: 'GET',
+                headers: {
+                    "Accept": "application/json",
+                },
+            }).then(function (res) {
+                return res.json();
+            }).then(function (data) {
+                if (data.code === 1) {
+                    setProjects(data.data);
+                } else {
+                    // todo handle error
+                }
+            }).catch(() => {
+                // todo handle error
+            });
+        }
 
-		function getProjects() {
+        getSkills();
+    }, []);
 
-			fetch(`${SERVICE_URL}get-projects-public`, {
-				method: 'GET',
-				headers: {
-					"Accept": "application/json",
-				},
-			}).then(function (res) {
-				return res.json();
-			}).then(function (data) {
-				if (data.code === 1) {
-					setProjects(data.data);
-				} else {
-					// todo handle error
-				}
-			}).catch(() => {
-				// todo handle error
-			});
-		}
+    function handleProjectClick(id: number) {
+        navigate("/projects/" + id)
+    }
 
-		getSkills();
-	}, []);
+    return (
+        <div>
 
-	function handleProjectClick(id: number){
-		navigate("/projects/" + id)
-	}
+            <img className="floatingStyle1" style={{
+                position: "absolute",
+                width: 200,
+                opacity: 0.3,
+                top: 250,
+                right: 350,
+            }} src="/svgs/union_27.svg" alt=""/>
 
-	return (
-		<div>
+            <img style={{
+                position: "absolute",
+                width: 500,
+                maxWidth: "100%",
+                opacity: 0.1,
+                bottom: 700,
+                left: 0,
+            }} src="/svgs/union_35.svg" alt=""/>
 
-			<img className="floatingStyle1" style={{
-				position: "absolute",
-				width: 200,
-				opacity: 0.3,
-				top: 250,
-				right: 350,
-			}} src="/svgs/union_27.svg" alt=""/>
-
-			<img style={{
-				position: "absolute",
-				width: 500,
-				maxWidth: "100%",
-				opacity: 0.1,
-				bottom: 700,
-				left: 0,
-			}} src="/svgs/union_35.svg" alt=""/>
-
-			<img style={{
-				position: "absolute",
-				width: 500,
-				maxWidth: "100%",
-				transform: "rotateY(180deg)",
-				opacity: 0.2,
-				bottom: 0,
-				right: 0,
-			}} src="/svgs/union_30.svg" alt=""/>
+            <img style={{
+                position: "absolute",
+                width: 500,
+                maxWidth: "100%",
+                transform: "rotateY(180deg)",
+                opacity: 0.2,
+                bottom: 0,
+                right: 0,
+            }} src="/svgs/union_30.svg" alt=""/>
 
 
-			<Header/>
+            <Header/>
 
-			<div className="home">
-				<div className="text">
-					<h1>
-						Get Your<br/>
-						Software system<br/>
-						From me.
-					</h1>
 
-					<div className="underHeader">
-						<a className="button" href="resume.pdf" download>
-							Download Resume
-						</a>
+            <div className="home">
+                <div className="text">
+                    <h1>
+                        Get Your<br/>
+                        Software system<br/>
+                        From <span style={{color: "#9767b7", fontWeight: 500}}>Nour</span>.
+                    </h1>
 
-						<p>
-							from CRM/ERP to E-commerce to any custom System <br/>
-							passion and innovation fill my heart.
-						</p>
-					</div>
-				</div>
+                    <div className="underHeader">
+                        <a className="button" href="resume.pdf" download>
+                            Download Resume
+                        </a>
 
-				<div>
-					<img src="/my-picture.png" alt="Nour Abo Elsoud"/>
-				</div>
-			</div>
+                        <p>
+                            Passionate full stack developer from CRM/ERP to Platforms <br/>
+                            any custom System innovation fill my heart.
+                        </p>
+                    </div>
+                </div>
 
-			<SkillsContainer skills={skills}/>
+                <div>
+                    <img src="/my-picture.png" alt="Nour Abo Elsoud"/>
+                </div>
+            </div>
 
-			<AboutMe/>
+            <SkillsContainer skills={skills}/>
 
-			<Projects projects={projects} projectClick={(id) => handleProjectClick(id)} />
+            <AboutMe/>
 
-			<Outlet context={[projects.find((project) => project.id.toString() === projectId ?? "-1")?.markdownDescription]} />
+            {/*<Projects projects={projects} projectClick={(id) => handleProjectClick(id)}/>*/}
 
-		</div>
-	);
+            <Outlet
+                context={[projects.find((project) => project.id.toString() === projectId ?? "-1")?.markdownDescription]}/>
+
+        </div>
+    );
 }
 
 export default App;

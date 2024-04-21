@@ -9,7 +9,7 @@ function AboutMe() {
 			</h1>
 
 			<p>
-				Software Developer with seven years of experience; at the start of my career, I mainly developed mobile
+				Software Developer with eight years of experience; at the start of my career, I mainly developed mobile
 				apps, expanded my knowledge to web development, and cross-platform mobile with a cloud backend.
 			</p>
 		</section>

@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira:wght@100;200&display=swap');
 
 $primary: #9767b7;
-$background: #e2e9f3;
+$background: #f5f5f7;
 $onBackground: #111b2a;
+$elevation: #ffffff;
 
-*{scroll-behavior: smooth;}
+* {
+  scroll-behavior: smooth;
+}
 
 
 .container {
@@ -55,6 +58,7 @@ body {
   transition: background 300ms;
   border: none;
   cursor: pointer;
+  font-family: 'open-sans', sans-serif;
 
   &:hover {
     background: $primary;
@@ -69,7 +73,6 @@ body {
 
 
 .header {
-  padding: 12px;
   display: flex;
   justify-content: space-between;
 }
@@ -88,7 +91,6 @@ body {
 
   img {
     border-radius: 1000px;
-    animation: float 6s ease-in-out infinite;
     position: relative;
     top: -15px;
   }
@@ -152,13 +154,12 @@ body {
 }
 
 .skillsContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   justify-content: center;
   margin-top: 24px;
+  gap: 8px;
 
-  @media screen and (max-width: 1500px) {
-    flex-wrap: wrap;
-  }
 
   .skill:first-child {
 
@@ -172,14 +173,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: 1px solid $onBackground;
-    border-bottom: 1px solid $onBackground;
-    border-right: 1px solid $onBackground;
-    width: 150px;
+    background: $elevation;
+    border-radius: 12px;
     height: 190px;
     font-size: 24px;
     flex-grow: 2;
     position: relative;
+    border: transparent 1px solid;
+
+    &:hover {
+      border: $primary 1px solid;
+    }
+
 
     img {
       filter: brightness(0);
@@ -364,12 +369,12 @@ section {
     flex-direction: column;
     align-items: flex-end;
 
-    .wmde-markdown{
+    .wmde-markdown {
       background-color: unset;
       color: unset;
     }
 
-    video{
+    video {
       max-width: 100%;
     }
   }

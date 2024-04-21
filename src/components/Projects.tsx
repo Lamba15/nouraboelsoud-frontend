@@ -26,7 +26,7 @@ function Projects(props: Props) {
 				onSlideChange={() => console.log('slide change')}
 				onSwiper={(swiper) => console.log(swiper)}
 			>
-				{props.projects.map((project) => {
+				{props.projects?.map((project) => {
 					return (
 						<SwiperSlide className={"project"} key={project.id}>
 							<h2>
@@ -44,7 +44,7 @@ function Projects(props: Props) {
 							<img src={project.cover} alt={project.name}/>
 
 							<div className="skills-project-container">
-								{project.skills.map((skill, index) => {
+								{project?.skills?.map((skill, index) => {
 									return (
 										<div key={index} className="skill">
 											<img src={skill.icon} alt={skill.name}/>
