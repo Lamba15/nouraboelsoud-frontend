@@ -53,7 +53,7 @@ function AboutMe() {
 
                 <div className={"spot"} style={{position: "relative"}}>
 
-                    <img src={"https://leenedu.net/assets/logo-e01ad738.svg"}
+                    <img alt={""} src={"https://leenedu.net/assets/logo-e01ad738.svg"}
                          style={{width: "100%", height: "100%", position: "absolute", opacity: .2}}/>
 
                     <h3 style={{

@@ -1,6 +1,5 @@
 import React from 'react';
 import {Swiper, SwiperSlide} from "swiper/react";
-import {EffectCreative} from "swiper";
 
 
 function Testimonials() {
@@ -53,7 +52,7 @@ function Testimonials() {
                         clickable: true
                     }}
                 >
-                    {testimonials.map((testimonial, index) => {
+                    {testimonials.map((testimonial ) => {
                         return (
                             <SwiperSlide>
                                 <div className={"testimonials-section-image-container"}>
