@@ -7,6 +7,7 @@ import AboutMe from "./components/AboutMe";
 import Projects from "./components/Projects";
 import {Outlet, useNavigate, useParams} from "react-router-dom";
 import Testimonials from "./components/Testimonials";
+import Services from "./components/Services";
 
 function App() {
 
@@ -129,6 +130,8 @@ function App() {
             <AboutMe/>
 
             <SkillsContainer skills={skills}/>
+
+            <Services />
 
             <Testimonials />
 

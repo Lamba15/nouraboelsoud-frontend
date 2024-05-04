@@ -545,6 +545,28 @@ section {
 
 }
 
+.services {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+
+  .service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(100%, 340px);
+    background: $elevation;
+    border-radius: 12px;
+    text-align: center;
+    color: $primary;
+    justify-content: space-between;
+
+    h3 {
+      font-size: 28px;
+    }
+  }
+}
+
 
 ::-webkit-scrollbar {
   width: 10px;
