@@ -25,31 +25,34 @@ function SkillsContainer(props: Props) {
 
     const [skillsAnimation, setSkillAnimation] = useState(false);
 
-    useEffect(() => {
-        setTimeout(() => {
-            setSkillAnimation(true);
-        }, 400);
-    }, [])
-
     const skillFramerVariants = {
         visible: {y: 0, opacity: 1},
         hidden: {y: -70, opacity: 0,}
     }
 
     return (
-        <motion.div initial={false} transition={{duration: .5}} variants={skillsFramerVariants}
-                    animate={skillsAnimation ? "visible" : "hidden"} className="skillsContainer container">
-            {props.skills.map((skill, index) => {
-                return (
-                    <motion.div className="skill" key={index} whileHover={{scale: 1.03}} variants={skillFramerVariants}>
-                        <img src={skill.icon} alt={skill.name}/>
-                        <span>
+        <section>
+            <h1>
+                Skills
+            </h1>
+            <motion.div initial={false} transition={{duration: .5}} variants={skillsFramerVariants}
+                        animate={skillsAnimation ? "visible" : "hidden"}
+                        onViewportEnter={() => {
+                            setSkillAnimation(true)
+                        }} className="skillsContainer container">
+                {props.skills.map((skill, index) => {
+                    return (
+                        <motion.div className="skill" key={index} whileHover={{scale: 1.03}}
+                                    variants={skillFramerVariants}>
+                            <img src={skill.icon} alt={skill.name}/>
+                            <span>
 						{skill.name}
 					</span>
-                    </motion.div>
-                )
-            })}
-        </motion.div>
+                        </motion.div>
+                    )
+                })}
+            </motion.div>
+        </section>
     );
 }
 
