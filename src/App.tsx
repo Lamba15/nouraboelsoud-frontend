@@ -120,7 +120,7 @@ function App() {
                         width: 200,
                         opacity: 0.3,
                         top: 250,
-                        right: 350,
+                        left: 450,
                     }} src="/svgs/union_27.svg" alt=""/>
 
                     <img style={{
@@ -157,8 +157,8 @@ function App() {
                         <div className={"container"}>
                             <div className={"logo-container"}>
                                 <a href="/" className="logo-link">
-                                    <img src="/logos/my-logo-squared-144.png"
-                                         style={{marginTop: 12, height: 50, marginBottom: 12}} alt="logo"/>
+                                    <img id={"logo-image"} src="/logos/my-logo-squared-144.png"
+                                         style={isVisible ? {marginTop: 12, height: 50, marginBottom: 12} : {marginTop: 12, height: 144, marginBottom: 12}} alt="logo"/>
                                     <span style={isVisible ? {display: "flex"} : {display: "none"}}
                                           className={`logoText `}><span>Nour</span> <span>Abo Elsoud</span></span>
                                 </a>

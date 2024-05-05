@@ -22,9 +22,17 @@ function MarkdownModal() {
 
                 <div style={{overscrollBehavior: "contain", width: "-webkit-fill-available"}} >
 
-                    <h1 style={{marginTop: 0}}>
-                        {title}
-                    </h1>
+                    <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+                        <h1 style={{marginTop: 0}}>
+                            {title}
+                        </h1>
+
+                    </div>
+
+
+                    <NavLink to={"/"} style={{position: "absolute", display: "flex", alignItems: "center", justifyContent: "center", right: -60, top: 0, background: "white", padding: 16, borderRadius: 9999, height: 16}}>
+                        <img src={"/svgs/cross.png"} alt={"close"} style={{width: 16}} />
+                    </NavLink>
 
                     <div className={"tech-used-container"}>
                         <h3 style={{marginRight: 6}}>
