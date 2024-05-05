@@ -88,10 +88,85 @@ body {
   }
 }
 
+.scrolled {
+  backdrop-filter: blur(12px);
+  background: hsla(0, 0%, 100%, .6);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+}
 
 .header {
-  display: flex;
-  justify-content: space-between;
+  position: sticky;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+
+
+  @media screen and (max-width: 800px) {
+    position: fixed;
+    bottom: 0;
+    top: unset;
+
+    backdrop-filter: blur(12px);
+    background: hsla(0, 0%, 100%, .6);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+
+    .logo-container {
+      display: none;
+    }
+
+    .navigation {
+
+      gap: 10px!important;
+      justify-content: center;
+      width: 100%;
+
+      & > * {
+        font-size: 16px!important;
+      }
+    }
+
+  }
+
+  .logo-container {
+
+    .logo-link {
+      text-decoration: none;
+      color: black;
+      display: flex;
+      align-items: center;
+    }
+
+    .logoText {
+      font-weight: 900;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+
+  & > div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navigation {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    height: 70px;
+
+    & > * {
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .active {
+      color: $primary;
+    }
+  }
 }
 
 .home {
@@ -236,7 +311,6 @@ body {
   width: 100%;
   box-sizing: border-box;
   justify-content: center;
-  margin: 0 auto;
   gap: 12px;
 
   h1 {
@@ -395,6 +469,8 @@ body {
 }
 
 section {
+  margin-bottom: 84px;
+
   h1 {
     text-align: center;
     font-size: 64px;
@@ -547,6 +623,7 @@ section {
 
 .services {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 25px;
 

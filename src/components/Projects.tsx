@@ -49,7 +49,7 @@ function Projects(props: Props) {
     }
 
     return (
-        <section>
+        <section style={{marginBottom: 0}}>
             <h1>
                 Projects
             </h1>
@@ -68,6 +68,7 @@ function Projects(props: Props) {
                         "dynamicBullets": true,
                         "clickable": true,
                     }}
+                    centeredSlides={true}
                     breakpoints={{
                         "600": {
                             "slidesPerView": 2,
