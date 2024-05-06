@@ -182,7 +182,18 @@ body {
   flex-direction: row;
   gap: 32px;
   margin-bottom: 48px;
-  padding-top: 188px;
+
+  @media screen and (min-width: 1240px) {
+    padding-top: 188px;
+  }
+
+  @media screen and (max-width: 1240px) {
+    padding-top: 94px;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding-top: 44px;
+  }
 
   @media screen and (max-width: 1240px) {
     flex-direction: column-reverse;
@@ -193,7 +204,7 @@ body {
   img {
     position: relative;
     top: -15px;
-    max-width: 540px;
+    max-width: min(545px, 100%);
   }
 
 

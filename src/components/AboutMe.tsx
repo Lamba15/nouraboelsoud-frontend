@@ -77,7 +77,7 @@ function AboutMe() {
                     window.open("https://www.upwork.com/freelancers/~01b9f10c5ef014f48a")
                 }}>
                     <h3>
-                        Top Rated Freelancer
+                        100% Job Success Score
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 102 28" role="img" aria-hidden="true">
                                 <path fill="#14a800"

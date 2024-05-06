@@ -158,7 +158,11 @@ function App() {
                             <div className={"logo-container"}>
                                 <a href="/" className="logo-link">
                                     <img id={"logo-image"} src="/logos/my-logo-squared-144.png"
-                                         style={isVisible ? {marginTop: 12, height: 50, marginBottom: 12} : {marginTop: 12, height: 144, marginBottom: 12}} alt="logo"/>
+                                         style={isVisible ? {
+                                             marginTop: 12,
+                                             height: 50,
+                                             marginBottom: 12
+                                         } : {marginTop: 12, height: 144, marginBottom: 12}} alt="logo"/>
                                     <span style={isVisible ? {display: "flex"} : {display: "none"}}
                                           className={`logoText `}><span>Nour</span> <span>Abo Elsoud</span></span>
                                 </a>
@@ -225,9 +229,7 @@ function App() {
                             </div>
                         </div>
 
-                        <div>
-                            <img src="/my-picture.png" alt="Nour Abo Elsoud"/>
-                        </div>
+                        <img src="/my-picture.png" alt="Nour Abo Elsoud"/>
                     </div>
 
                     <AboutMe/>
