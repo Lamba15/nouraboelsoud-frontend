@@ -91,7 +91,13 @@ body {
 .scrolled {
   backdrop-filter: blur(12px);
   background: hsla(0, 0%, 100%, .6);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+
+  border-bottom: 1px solid hsla(0, 0%, 82%, 0.6);
+
+  @media (max-width: 800px) {
+    border-bottom: none;
+    border-top: 1px solid hsla(0, 0%, 82%, 0.6);
+  }
 }
 
 .header {
@@ -117,12 +123,14 @@ body {
 
     .navigation {
 
-      gap: 10px!important;
+      gap: 10px !important;
       justify-content: center;
       width: 100%;
 
       & > * {
-        font-size: 16px!important;
+        font-size: 16px !important;
+        cursor: pointer;
+        user-select: none;
       }
     }
 
@@ -695,4 +703,99 @@ section {
 
 .swiper-pagination-bullet-active {
   background: $primary !important;
+}
+
+footer {
+  position: relative;
+  background: white;
+  height: 200px;
+
+  @media screen and (max-width: 800px) {
+    height: 300px;
+  }
+
+  .main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    bottom: 63px;
+    height: 263px;
+
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 363px;
+      bottom: 40px;
+      gap: 24px;
+
+      & > div{
+        align-items: center;
+      }
+    }
+  }
+
+  .hire-me {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 24px;
+
+    @media screen and (max-width: 800px) {
+      align-items: center;
+    }
+
+    button {
+      font-size: 18px;
+      background: $primary;
+      &:hover {
+        background: darken($primary, 20);
+      }
+    }
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  .socials {
+    display: flex;
+    gap: 10px;
+
+    .social {
+      border: transparent 1px solid;
+
+      &:hover {
+        border: $primary 1px solid;
+      }
+
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      background: $background;
+      width: 45px;
+      height: 45px;
+
+
+      & > svg {
+        width: 30px;
+      }
+    }
+  }
+
+  svg {
+    bottom: 200px !important;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding-bottom: 70px;
+
+    svg {
+      bottom: 370px !important;
+    }
+  }
+
 }

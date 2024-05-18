@@ -42,7 +42,7 @@ function MarkdownModal() {
                         <div className="skills-project-container">
                             {skills?.map((skill: Skill, index: number) => {
                                 return (
-                                    <div key={index} className="skill" >
+                                    <div key={index} className="skill" title={skill.name}>
                                         <img src={skill.icon} alt={skill.name}/>
                                     </div>
                                 );
